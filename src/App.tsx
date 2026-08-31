@@ -11,7 +11,6 @@ import { HeroSection } from './components/HeroSection';
 import { TechStackMarquee } from './components/TechStackMarquee';
 import { ServicesSection } from './components/ServicesSection';
 import { PortfolioSection } from './components/PortfolioSection';
-import { ArchitectureSection } from './components/ArchitectureSection';
 import { TestimonialsSection } from './components/TestimonialsSection';
 import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
@@ -70,9 +69,6 @@ function AppContent() {
 
         {/* Proven Deployments Bento Grid (Portfolio) */}
         <PortfolioSection onSelectProject={(project) => setSelectedProject(project)} />
-
-        {/* Technical Architecture & Live CI/CD Pipeline Simulator */}
-        <ArchitectureSection />
 
         {/* Engineering Excellence, Verified (Testimonials) */}
         <TestimonialsSection />

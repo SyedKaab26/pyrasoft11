@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, MessageSquare, Send, CheckCircle, ShieldCheck, Clock, ArrowUpRight, Lock } from 'lucide-react';
+import { Mail, MessageSquare, Send, CheckCircle, ShieldCheck, Clock, ArrowUpRight, Lock, Copy, Check, Sparkles, ExternalLink } from 'lucide-react';
 import { ProtocolBrief } from '../types';
 
 export const ContactSection: React.FC = () => {
@@ -15,8 +15,14 @@ export const ContactSection: React.FC = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
+  const [mailerResponse, setMailerResponse] = useState<{
+    recipient?: string;
+    messageId?: string;
+    status?: string;
+  } | null>(null);
+  const [copied, setCopied] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.fullName.trim()) {
       setErrorMsg('Please specify your name or company lead.');
@@ -34,11 +40,58 @@ export const ContactSection: React.FC = () => {
     setErrorMsg('');
     setIsSubmitting(true);
 
-    setTimeout(() => {
+    try {
+      const response = await fetch('/api/send-mail', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (response.ok && data.success) {
+        setMailerResponse({
+          recipient: data.recipient || 's.kaab2004@gmail.com',
+          messageId: data.messageId,
+          status: data.status,
+        });
+        setIsSubmitted(true);
+      } else {
+        throw new Error(data.error || 'Failed to dispatch email via mailer');
+      }
+    } catch (err: any) {
+      console.error('Mailer error:', err);
+      // Even if network has issues, provide fallback
+      setErrorMsg(err.message || 'Unable to reach the mailer service. You can also contact us directly at s.kaab2004@gmail.com.');
+    } finally {
       setIsSubmitting(false);
-      setIsSubmitted(true);
-    }, 1000);
+    }
   };
+
+  const handleCopySummary = () => {
+    const summary = `Pyrasoft Project Brief:
+Name: ${formData.fullName}
+Email: ${formData.corporateEmail}
+Scope: ${formData.projectScope}
+Budget: ${formData.budgetTier}
+Timeline: ${formData.timeline}
+Requirements: ${formData.technicalRequirements}`;
+    navigator.clipboard.writeText(summary);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
+  const mailtoLink = `mailto:s.kaab2004@gmail.com?subject=${encodeURIComponent(
+    `Project Inquiry: ${formData.projectScope} - ${formData.fullName}`
+  )}&body=${encodeURIComponent(
+    `Client: ${formData.fullName}\nEmail: ${formData.corporateEmail}\nScope: ${formData.projectScope}\nBudget: ${formData.budgetTier}\nTimeline: ${formData.timeline}\n\nRequirements:\n${formData.technicalRequirements}`
+  )}`;
+
+  const whatsappMessageLink = `https://wa.me/923252184829?text=${encodeURIComponent(
+    `Hello Pyrasoft, I have submitted a project brief:\n\nName: ${formData.fullName}\nScope: ${formData.projectScope}\nBudget: ${formData.budgetTier}\n\nRequirements: ${formData.technicalRequirements}`
+  )}`;
 
   return (
     <section className="py-24 px-5 md:px-12 relative overflow-hidden bg-transparent" id="contact">
@@ -120,22 +173,85 @@ export const ContactSection: React.FC = () => {
         <div className="lg:col-span-7">
           <div className="glass-panel p-6 sm:p-8 rounded-2xl relative shadow-2xl">
             {isSubmitted ? (
-              <div className="py-12 px-4 text-center space-y-5 animate-in fade-in zoom-in duration-300">
-                <div className="w-16 h-16 rounded-full bg-emerald-500/15 border border-emerald-500/40 flex items-center justify-center text-emerald-400 mx-auto shadow-lg">
+              <div className="py-8 px-2 sm:px-4 text-center space-y-5 animate-in fade-in zoom-in duration-300">
+                <div className="w-16 h-16 rounded-full bg-emerald-500/15 border border-emerald-500/40 flex items-center justify-center text-emerald-400 mx-auto shadow-lg shadow-emerald-500/20">
                   <CheckCircle className="w-8 h-8" />
                 </div>
                 <div className="space-y-2">
+                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#F4C852]/10 border border-[#F4C852]/30 text-[#F4C852] text-xs font-mono">
+                    <Sparkles className="w-3.5 h-3.5" />
+                    <span>Mailer Dispatched Successfully</span>
+                  </div>
                   <h3 className="font-headline text-2xl sm:text-3xl font-bold text-white">
-                    Project Brief Received!
+                    Project Brief Sent!
                   </h3>
                   <p className="font-sans text-sm sm:text-base text-slate-300 max-w-md mx-auto">
-                    Thank you for reaching out. We have logged your request and our engineering team will get back to you with next steps within 24 hours.
+                    Your requirements have been processed and forwarded to our engineering desk at{' '}
+                    <span className="text-[#F4C852] font-semibold">{mailerResponse?.recipient || 's.kaab2004@gmail.com'}</span>. We will review your scope and get in touch within 24 hours.
                   </p>
                 </div>
-                <div className="pt-4">
+
+                {/* Brief Summary Box */}
+                <div className="p-4 rounded-xl bg-[#090e1a] border border-white/10 text-left font-mono text-xs space-y-2 max-w-lg mx-auto">
+                  <div className="flex items-center justify-between text-slate-400 border-b border-white/5 pb-2">
+                    <span className="text-white font-bold">DISPATCH RECEIPT</span>
+                    <span className="text-emerald-400 font-semibold">STATUS: DELIVERED</span>
+                  </div>
+                  <div className="grid grid-cols-2 gap-2 pt-1 text-slate-300">
+                    <div>
+                      <span className="text-slate-500 block text-[10px]">CLIENT</span>
+                      <span className="text-white">{formData.fullName}</span>
+                    </div>
+                    <div>
+                      <span className="text-slate-500 block text-[10px]">EMAIL</span>
+                      <span className="text-white truncate block">{formData.corporateEmail}</span>
+                    </div>
+                    <div>
+                      <span className="text-slate-500 block text-[10px]">SCOPE</span>
+                      <span className="text-[#F4C852]">{formData.projectScope}</span>
+                    </div>
+                    <div>
+                      <span className="text-slate-500 block text-[10px]">BUDGET</span>
+                      <span className="text-[#F4C852]">{formData.budgetTier}</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Quick actions */}
+                <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
+                  <button
+                    onClick={handleCopySummary}
+                    className="px-4 py-2.5 rounded-lg bg-[#0f172a] hover:bg-[#1a2333] border border-white/10 text-slate-200 text-xs font-mono flex items-center gap-2 transition-all cursor-pointer"
+                  >
+                    {copied ? <Check className="w-4 h-4 text-emerald-400" /> : <Copy className="w-4 h-4 text-slate-400" />}
+                    <span>{copied ? 'Copied Brief' : 'Copy Brief'}</span>
+                  </button>
+
+                  <a
+                    href={mailtoLink}
+                    className="px-4 py-2.5 rounded-lg bg-[#0f172a] hover:bg-[#1a2333] border border-white/10 text-slate-200 text-xs font-mono flex items-center gap-2 transition-all"
+                  >
+                    <Mail className="w-4 h-4 text-[#F4C852]" />
+                    <span>Open in Email App</span>
+                    <ExternalLink className="w-3 h-3 text-slate-500" />
+                  </a>
+
+                  <a
+                    href={whatsappMessageLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-4 py-2.5 rounded-lg bg-emerald-500/15 hover:bg-emerald-500/25 border border-emerald-500/40 text-emerald-300 text-xs font-mono flex items-center gap-2 transition-all"
+                  >
+                    <MessageSquare className="w-4 h-4 text-emerald-400" />
+                    <span>Send via WhatsApp</span>
+                  </a>
+                </div>
+
+                <div className="pt-4 border-t border-white/10">
                   <button
                     onClick={() => {
                       setIsSubmitted(false);
+                      setMailerResponse(null);
                       setFormData({
                         fullName: '',
                         corporateEmail: '',
@@ -145,7 +261,7 @@ export const ContactSection: React.FC = () => {
                         technicalRequirements: ''
                       });
                     }}
-                    className="btn-secondary px-6 py-2.5 text-xs font-mono"
+                    className="btn-secondary px-6 py-2.5 text-xs font-mono cursor-pointer"
                   >
                     Submit Another Inquiry
                   </button>

@@ -16,7 +16,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenTelemetry, onOpenContact }
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
 
-      const sections = ['services', 'portfolio', 'architecture', 'testimonials', 'contact'];
+      const sections = ['services', 'portfolio', 'testimonials', 'contact'];
       const current = sections.find((sec) => {
         const el = document.getElementById(sec);
         if (el) {
@@ -37,7 +37,6 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenTelemetry, onOpenContact }
   const navLinks = [
     { label: 'Services', href: '#services', id: 'services' },
     { label: 'Portfolio', href: '#portfolio', id: 'portfolio' },
-    { label: 'Architecture', href: '#architecture', id: 'architecture' },
     { label: 'Testimonials', href: '#testimonials', id: 'testimonials' },
   ];
 

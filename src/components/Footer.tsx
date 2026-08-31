@@ -72,12 +72,6 @@ export const Footer: React.FC<FooterProps> = ({ onOpenTelemetry }) => {
                 Client Reviews
               </a>
               <a
-                href="#architecture"
-                className="text-slate-400 hover:text-[#F4C852] transition-colors text-sm"
-              >
-                Architecture &amp; Security
-              </a>
-              <a
                 href="#contact"
                 className="text-slate-400 hover:text-[#F4C852] transition-colors text-sm"
               >
