@@ -1,30 +1,31 @@
 import React from 'react';
-import { Search, PenTool, Code2, Rocket } from 'lucide-react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMagnifyingGlass, faPenNib, faCode, faRocket } from '@fortawesome/free-solid-svg-icons';
 
 export const ProcessSection: React.FC = () => {
   const steps = [
     {
       number: '01',
       title: 'Discovery & Scope',
-      icon: Search,
+      icon: faMagnifyingGlass,
       description: 'We analyze your functional goals, target audience, and architecture requirements to outline a realistic timeline and transparent milestone budget.'
     },
     {
       number: '02',
       title: 'UI/UX & Architecture',
-      icon: PenTool,
+      icon: faPenNib,
       description: 'We design high-fidelity, responsive interface prototypes and plan scalable database schemas and API specifications before writing code.'
     },
     {
       number: '03',
       title: 'Full-Stack Development',
-      icon: Code2,
+      icon: faCode,
       description: 'Clean, type-safe development across modern stacks (React, Next.js, WordPress, Node) with automated testing and continuous code reviews.'
     },
     {
       number: '04',
       title: 'Launch & Handover',
-      icon: Rocket,
+      icon: faRocket,
       description: 'Zero-downtime production deployment, Google Core Web Vitals optimization, client documentation, and dedicated post-launch support.'
     }
   ];
@@ -51,7 +52,6 @@ export const ProcessSection: React.FC = () => {
         {/* 4-Step Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {steps.map((step) => {
-            const Icon = step.icon;
             return (
               <div
                 key={step.number}
@@ -63,7 +63,7 @@ export const ProcessSection: React.FC = () => {
                       {step.number}
                     </span>
                     <div className="w-8 h-8 rounded-lg bg-[#141926] border border-white/10 flex items-center justify-center text-slate-300">
-                      <Icon className="w-4 h-4 text-[#e5b842]" />
+                      <FontAwesomeIcon icon={step.icon} className="text-xs text-[#e5b842]" />
                     </div>
                   </div>
 

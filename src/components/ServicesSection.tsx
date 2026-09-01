@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { SERVICES_DATA } from '../data/mockData';
 import { ServiceItem } from '../types';
-import { ArrowRight } from 'lucide-react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
 interface ServicesSectionProps {
   onSelectService: (service: ServiceItem) => void;
@@ -118,7 +119,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
 
                   <div className="flex items-center gap-1 text-slate-400 group-hover:text-white transition-colors text-[11px]">
                     <span className="opacity-0 group-hover:opacity-100 transition-opacity">Details</span>
-                    <ArrowRight className="w-3.5 h-3.5 transform group-hover:translate-x-0.5 transition-transform" />
+                    <FontAwesomeIcon icon={faArrowRight} className="text-[10px] transform group-hover:translate-x-0.5 transition-transform" />
                   </div>
                 </div>
               </div>

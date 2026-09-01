@@ -1,6 +1,7 @@
 import React from 'react';
 import { PortfolioProject } from '../types';
-import { X, ExternalLink, ArrowRight } from 'lucide-react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faXmark, faArrowRight, faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons';
 
 interface ProjectDetailModalProps {
   project: PortfolioProject | null;
@@ -24,7 +25,7 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({
           onClick={onClose}
           className="absolute top-5 right-5 z-20 p-2 rounded-lg bg-white/5 hover:bg-white/10 text-slate-400 hover:text-white transition-colors cursor-pointer border border-white/10"
         >
-          <X className="w-4 h-4" />
+          <FontAwesomeIcon icon={faXmark} className="text-sm" />
         </button>
 
         {/* Hero Image Preview */}
@@ -52,7 +53,7 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({
                 className="px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-white font-medium text-xs flex items-center gap-1.5 border border-white/15 transition-all"
               >
                 <span>Live Deployment</span>
-                <ExternalLink className="w-3.5 h-3.5" />
+                <FontAwesomeIcon icon={faArrowUpRightFromSquare} className="text-[11px]" />
               </a>
             )}
           </div>
@@ -113,7 +114,7 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({
             className="btn-primary w-full sm:w-auto px-6 py-2.5 text-xs font-semibold flex items-center justify-center gap-2 cursor-pointer"
           >
             <span>Start Similar Project</span>
-            <ArrowRight className="w-3.5 h-3.5" />
+            <FontAwesomeIcon icon={faArrowRight} className="text-xs" />
           </button>
 
           {project.liveUrl && (
@@ -124,7 +125,7 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({
               className="btn-secondary w-full sm:w-auto px-5 py-2.5 text-xs font-mono flex items-center justify-center gap-1.5 cursor-pointer"
             >
               <span>Open Deployment</span>
-              <ExternalLink className="w-3.5 h-3.5" />
+              <FontAwesomeIcon icon={faArrowUpRightFromSquare} className="text-[11px]" />
             </a>
           )}
         </div>

@@ -1,5 +1,6 @@
 import React from 'react';
-import { ArrowRight, ArrowUpRight } from 'lucide-react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowRight, faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons';
 
 interface HeroSectionProps {
   onStartProject: () => void;
@@ -55,7 +56,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onStartProject }) => {
             className="btn-primary px-6 py-3 font-semibold text-sm inline-flex items-center gap-2 cursor-pointer"
           >
             <span>Start a Project</span>
-            <ArrowRight className="w-4 h-4" />
+            <FontAwesomeIcon icon={faArrowRight} className="text-xs" />
           </button>
 
           <a
@@ -64,7 +65,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onStartProject }) => {
             className="btn-secondary px-6 py-3 font-medium text-sm inline-flex items-center gap-2 cursor-pointer"
           >
             <span>View Selected Work</span>
-            <ArrowUpRight className="w-4 h-4 text-slate-400" />
+            <FontAwesomeIcon icon={faArrowUpRightFromSquare} className="text-xs text-slate-400 group-hover:text-[#090b11]" />
           </a>
         </div>
       </div>

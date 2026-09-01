@@ -1,5 +1,18 @@
 import React, { useState } from 'react';
-import { Mail, MessageSquare, Send, CheckCircle, ShieldCheck, Clock, ArrowUpRight, Lock, Copy, Check, Sparkles, ExternalLink } from 'lucide-react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faEnvelope,
+  faPaperPlane,
+  faCircleCheck,
+  faShieldHalved,
+  faClock,
+  faArrowUpRightFromSquare,
+  faLock,
+  faCopy,
+  faCheck,
+  faWandMagicSparkles
+} from '@fortawesome/free-solid-svg-icons';
+import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 import { ProtocolBrief } from '../types';
 
 export const ContactSection: React.FC = () => {
@@ -115,16 +128,16 @@ Requirements: ${formData.technicalRequirements}`;
             {/* Direct Email */}
             <div className="flex items-center gap-4 glass-panel p-4 rounded-xl hover:border-white/20 transition-colors">
               <div className="w-10 h-10 rounded-lg bg-[#090b11] flex items-center justify-center border border-white/10 text-slate-300 shrink-0">
-                <Mail className="w-4 h-4 text-[#e5b842]" />
+                <FontAwesomeIcon icon={faEnvelope} className="text-sm text-[#e5b842]" />
               </div>
               <div>
                 <div className="text-slate-500 text-xs font-mono uppercase">Direct Inquiries</div>
                 <a
                   href="mailto:s.kaab2004@gmail.com"
-                  className="text-white font-semibold text-sm sm:text-base hover:text-slate-200 transition-colors flex items-center gap-1"
+                  className="text-white font-semibold text-sm sm:text-base hover:text-slate-200 transition-colors flex items-center gap-1.5"
                 >
                   <span>s.kaab2004@gmail.com</span>
-                  <ArrowUpRight className="w-3.5 h-3.5 text-slate-400" />
+                  <FontAwesomeIcon icon={faArrowUpRightFromSquare} className="text-[11px] text-slate-400" />
                 </a>
               </div>
             </div>
@@ -132,7 +145,7 @@ Requirements: ${formData.technicalRequirements}`;
             {/* WhatsApp */}
             <div className="flex items-center gap-4 glass-panel p-4 rounded-xl hover:border-white/20 transition-colors">
               <div className="w-10 h-10 rounded-lg bg-[#090b11] flex items-center justify-center border border-white/10 text-slate-300 shrink-0">
-                <MessageSquare className="w-4 h-4 text-emerald-400" />
+                <FontAwesomeIcon icon={faWhatsapp} className="text-base text-emerald-400" />
               </div>
               <div>
                 <div className="text-slate-500 text-xs font-mono uppercase">WhatsApp Consultation</div>
@@ -140,10 +153,10 @@ Requirements: ${formData.technicalRequirements}`;
                   href="https://wa.me/923252184829"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-white font-semibold text-sm sm:text-base hover:text-slate-200 transition-colors flex items-center gap-1"
+                  className="text-white font-semibold text-sm sm:text-base hover:text-slate-200 transition-colors flex items-center gap-1.5"
                 >
                   <span>+92 3252184829</span>
-                  <ArrowUpRight className="w-3.5 h-3.5 text-slate-400" />
+                  <FontAwesomeIcon icon={faArrowUpRightFromSquare} className="text-[11px] text-slate-400" />
                 </a>
               </div>
             </div>
@@ -152,15 +165,15 @@ Requirements: ${formData.technicalRequirements}`;
           {/* Guarantees Box */}
           <div className="p-5 rounded-xl bg-[#0e121b] border border-white/10 font-mono text-xs text-slate-300 space-y-3">
             <div className="flex items-center gap-2 text-white font-semibold">
-              <Lock className="w-3.5 h-3.5 text-slate-400" />
+              <FontAwesomeIcon icon={faLock} className="text-xs text-slate-400" />
               <span>CONFIDENTIAL &amp; PROTECTED</span>
             </div>
             <p className="leading-relaxed text-slate-400 font-sans text-xs">
               All discussions and materials are handled under strict NDA standards. We review architecture requirements before formulating milestone proposals.
             </p>
             <div className="flex flex-wrap items-center gap-4 text-[11px] text-slate-300 pt-1">
-              <span className="flex items-center gap-1.5"><Clock className="w-3.5 h-3.5 text-[#e5b842]" /> 24h Response Window</span>
-              <span className="flex items-center gap-1.5"><ShieldCheck className="w-3.5 h-3.5 text-emerald-400" /> Free Technical Assessment</span>
+              <span className="flex items-center gap-1.5"><FontAwesomeIcon icon={faClock} className="text-xs text-[#e5b842]" /> 24h Response Window</span>
+              <span className="flex items-center gap-1.5"><FontAwesomeIcon icon={faShieldHalved} className="text-xs text-emerald-400" /> Free Technical Assessment</span>
             </div>
           </div>
         </div>
@@ -171,11 +184,11 @@ Requirements: ${formData.technicalRequirements}`;
             {isSubmitted ? (
               <div className="py-8 px-2 sm:px-4 text-center space-y-5 animate-in fade-in duration-150">
                 <div className="w-12 h-12 rounded-full bg-emerald-500/10 border border-emerald-500/25 flex items-center justify-center text-emerald-400 mx-auto">
-                  <CheckCircle className="w-6 h-6" />
+                  <FontAwesomeIcon icon={faCircleCheck} className="text-xl" />
                 </div>
                 <div className="space-y-1.5">
                   <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/[0.04] border border-white/10 text-slate-300 text-xs font-mono">
-                    <Sparkles className="w-3.5 h-3.5 text-[#e5b842]" />
+                    <FontAwesomeIcon icon={faWandMagicSparkles} className="text-xs text-[#e5b842]" />
                     <span>Brief Dispatched via Mailer</span>
                   </div>
                   <h3 className="font-headline text-2xl sm:text-3xl font-bold text-white">
@@ -219,7 +232,7 @@ Requirements: ${formData.technicalRequirements}`;
                     onClick={handleCopySummary}
                     className="px-4 py-2 rounded-lg bg-[#090b11] hover:bg-[#141926] border border-white/10 text-slate-200 text-xs font-mono flex items-center gap-2 transition-colors cursor-pointer"
                   >
-                    {copied ? <Check className="w-4 h-4 text-emerald-400" /> : <Copy className="w-4 h-4 text-slate-400" />}
+                    {copied ? <FontAwesomeIcon icon={faCheck} className="text-xs text-emerald-400" /> : <FontAwesomeIcon icon={faCopy} className="text-xs text-slate-400" />}
                     <span>{copied ? 'Copied Brief' : 'Copy Brief'}</span>
                   </button>
 
@@ -227,9 +240,9 @@ Requirements: ${formData.technicalRequirements}`;
                     href={mailtoLink}
                     className="px-4 py-2 rounded-lg bg-[#090b11] hover:bg-[#141926] border border-white/10 text-slate-200 text-xs font-mono flex items-center gap-2 transition-colors"
                   >
-                    <Mail className="w-4 h-4 text-[#e5b842]" />
+                    <FontAwesomeIcon icon={faEnvelope} className="text-xs text-[#e5b842]" />
                     <span>Open in Email App</span>
-                    <ExternalLink className="w-3 h-3 text-slate-500" />
+                    <FontAwesomeIcon icon={faArrowUpRightFromSquare} className="text-[10px] text-slate-500" />
                   </a>
 
                   <a
@@ -238,7 +251,7 @@ Requirements: ${formData.technicalRequirements}`;
                     rel="noopener noreferrer"
                     className="px-4 py-2 rounded-lg bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-500/25 text-emerald-300 text-xs font-mono flex items-center gap-2 transition-colors"
                   >
-                    <MessageSquare className="w-4 h-4 text-emerald-400" />
+                    <FontAwesomeIcon icon={faWhatsapp} className="text-sm text-emerald-400" />
                     <span>Send via WhatsApp</span>
                   </a>
                 </div>
@@ -394,7 +407,7 @@ Requirements: ${formData.technicalRequirements}`;
                   ) : (
                     <>
                       <span>Submit Project Brief</span>
-                      <Send className="w-4 h-4" />
+                      <FontAwesomeIcon icon={faPaperPlane} className="text-xs" />
                     </>
                   )}
                 </button>

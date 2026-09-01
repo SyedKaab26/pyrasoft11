@@ -1,7 +1,8 @@
 import React from 'react';
 import { PORTFOLIO_PROJECTS } from '../data/mockData';
 import { PortfolioProject } from '../types';
-import { ArrowRight, ExternalLink } from 'lucide-react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowRight, faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons';
 
 interface PortfolioSectionProps {
   onSelectProject: (project: PortfolioProject) => void;
@@ -64,7 +65,7 @@ export const PortfolioSection: React.FC<PortfolioSectionProps> = ({ onSelectProj
                     className="p-2 rounded-lg bg-[#0e121b]/90 backdrop-blur-sm border border-white/10 text-slate-300 hover:text-white hover:border-white/20 transition-colors"
                     title="Open Live Deployment"
                   >
-                    <ExternalLink className="w-3.5 h-3.5" />
+                    <FontAwesomeIcon icon={faArrowUpRightFromSquare} className="text-xs" />
                   </a>
                 )}
               </div>
@@ -85,7 +86,7 @@ export const PortfolioSection: React.FC<PortfolioSectionProps> = ({ onSelectProj
 
                 <h3 className="font-headline text-lg sm:text-xl font-bold text-white mb-2 group-hover:text-slate-100 transition-colors flex items-center justify-between">
                   <span>{project.title}</span>
-                  <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-white transform group-hover:translate-x-1 transition-all" />
+                  <FontAwesomeIcon icon={faArrowRight} className="text-xs text-slate-400 group-hover:text-white transform group-hover:translate-x-1 transition-all" />
                 </h3>
 
                 <p className="text-slate-400 text-xs sm:text-sm leading-relaxed mb-4 line-clamp-2 font-normal">

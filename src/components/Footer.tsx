@@ -1,5 +1,6 @@
 import React from 'react';
-import { ArrowUp } from 'lucide-react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowUp } from '@fortawesome/free-solid-svg-icons';
 import { PyrasoftLogo } from './PyrasoftLogo';
 
 interface FooterProps {
@@ -94,7 +95,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenContact }) => {
             aria-label="Back to top"
           >
             <span>Back to Top</span>
-            <ArrowUp className="w-3.5 h-3.5 transition-transform group-hover:-translate-y-0.5" />
+            <FontAwesomeIcon icon={faArrowUp} className="text-xs transition-transform group-hover:-translate-y-0.5" />
           </button>
         </div>
       </div>

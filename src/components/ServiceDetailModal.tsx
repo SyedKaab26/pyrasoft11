@@ -1,6 +1,7 @@
 import React from 'react';
 import { ServiceItem } from '../types';
-import { X, ArrowRight, Check } from 'lucide-react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faXmark, faArrowRight, faCheck } from '@fortawesome/free-solid-svg-icons';
 
 interface ServiceDetailModalProps {
   service: ServiceItem | null;
@@ -24,7 +25,7 @@ export const ServiceDetailModal: React.FC<ServiceDetailModalProps> = ({
           onClick={onClose}
           className="absolute top-5 right-5 p-2 rounded-lg bg-white/5 hover:bg-white/10 text-slate-400 hover:text-white transition-colors cursor-pointer"
         >
-          <X className="w-4 h-4" />
+          <FontAwesomeIcon icon={faXmark} className="text-sm" />
         </button>
 
         {/* Header */}
@@ -55,7 +56,7 @@ export const ServiceDetailModal: React.FC<ServiceDetailModalProps> = ({
             <ul className="space-y-2">
               {service.features.map((feat, i) => (
                 <li key={i} className="flex items-start gap-2 text-xs text-slate-300">
-                  <Check className="w-3.5 h-3.5 text-[#e5b842] shrink-0 mt-0.5" />
+                  <FontAwesomeIcon icon={faCheck} className="text-xs text-[#e5b842] shrink-0 mt-0.5" />
                   <span>{feat}</span>
                 </li>
               ))}
@@ -87,7 +88,7 @@ export const ServiceDetailModal: React.FC<ServiceDetailModalProps> = ({
             className="btn-primary w-full sm:w-auto px-6 py-2.5 text-xs font-semibold flex items-center justify-center gap-2 cursor-pointer"
           >
             <span>Request This Capability</span>
-            <ArrowRight className="w-3.5 h-3.5" />
+            <FontAwesomeIcon icon={faArrowRight} className="text-xs" />
           </button>
 
           <button

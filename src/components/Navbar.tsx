@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, ArrowUpRight } from 'lucide-react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars, faXmark, faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons';
 import { PyrasoftLogo } from './PyrasoftLogo';
 
 interface NavbarProps {
@@ -88,7 +89,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContact }) => {
             className="btn-primary px-4 py-2 text-xs font-semibold hidden md:inline-flex items-center gap-1.5 cursor-pointer"
           >
             <span>Start a Project</span>
-            <ArrowUpRight className="w-3.5 h-3.5" />
+            <FontAwesomeIcon icon={faArrowUpRightFromSquare} className="text-[11px]" />
           </button>
 
           <button
@@ -97,7 +98,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenContact }) => {
             className="md:hidden text-slate-300 p-2 hover:bg-[#141926] rounded-lg border border-white/10"
             aria-label="Toggle navigation menu"
           >
-            {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            {mobileMenuOpen ? <FontAwesomeIcon icon={faXmark} className="text-base" /> : <FontAwesomeIcon icon={faBars} className="text-base" />}
           </button>
         </div>
       </div>
