@@ -5,24 +5,23 @@
 
 import React, { useState } from 'react';
 import { ThemeProvider } from './context/ThemeContext';
-import { BackgroundShader } from './components/BackgroundShader';
+import KineticGrid from './components/ui/kinetic-grid';
 import { Navbar } from './components/Navbar';
 import { HeroSection } from './components/HeroSection';
 import { TechStackMarquee } from './components/TechStackMarquee';
 import { ServicesSection } from './components/ServicesSection';
+import { ProcessSection } from './components/ProcessSection';
 import { PortfolioSection } from './components/PortfolioSection';
 import { TestimonialsSection } from './components/TestimonialsSection';
 import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
 import { ServiceDetailModal } from './components/ServiceDetailModal';
 import { ProjectDetailModal } from './components/ProjectDetailModal';
-import { SystemTelemetryModal } from './components/SystemTelemetryModal';
 import { ServiceItem, PortfolioProject } from './types';
 
 function AppContent() {
   const [selectedService, setSelectedService] = useState<ServiceItem | null>(null);
   const [selectedProject, setSelectedProject] = useState<PortfolioProject | null>(null);
-  const [isTelemetryOpen, setIsTelemetryOpen] = useState(false);
 
   const scrollToContact = () => {
     const el = document.getElementById('contact');
@@ -33,7 +32,6 @@ function AppContent() {
 
   const handleRequestCapability = (serviceTitle: string) => {
     scrollToContact();
-    // Pre-populate or scroll to contact section
     const scopeSelect = document.getElementById('select-contact-scope') as HTMLSelectElement | null;
     if (scopeSelect) {
       const match = Array.from(scopeSelect.options).find((opt) =>
@@ -46,39 +44,36 @@ function AppContent() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col relative text-slate-100 font-sans antialiased selection:bg-[#F4C852] selection:text-black">
-      {/* Interactive WebGL Quantum Shader Background */}
-      <BackgroundShader />
-
+    <KineticGrid className="min-h-screen flex flex-col relative text-slate-100 font-sans antialiased selection:bg-[#e5b842] selection:text-black">
       {/* Global Navigation Header */}
-      <Navbar
-        onOpenTelemetry={() => setIsTelemetryOpen(true)}
-        onOpenContact={scrollToContact}
-      />
+      <Navbar onOpenContact={scrollToContact} />
 
       {/* Main Content Sections */}
       <main className="flex-grow">
-        {/* Hero Section with Interactive Terminal */}
+        {/* Hero Section */}
         <HeroSection onStartProject={scrollToContact} />
 
-        {/* Tech Stack Infinite Marquee */}
+        {/* Core Technologies */}
         <TechStackMarquee />
 
-        {/* 16 Core Engineering Capabilities Grid */}
+        {/* Capabilities & Services Grid */}
         <ServicesSection onSelectService={(service) => setSelectedService(service)} />
 
-        {/* Proven Deployments Bento Grid (Portfolio) */}
+        {/* Working Methodology & 4-Step Process */}
+        <ProcessSection />
+
+        {/* Featured Case Studies (Portfolio) */}
         <PortfolioSection onSelectProject={(project) => setSelectedProject(project)} />
 
-        {/* Engineering Excellence, Verified (Testimonials) */}
+        {/* Client Testimonials */}
         <TestimonialsSection />
 
-        {/* Contact Protocol Brief Submission */}
+        {/* Contact Form & Project Brief Submission */}
         <ContactSection />
       </main>
 
       {/* Footer */}
-      <Footer onOpenTelemetry={() => setIsTelemetryOpen(true)} />
+      <Footer onOpenContact={scrollToContact} />
 
       {/* Interactive Modals */}
       <ServiceDetailModal
@@ -92,12 +87,7 @@ function AppContent() {
         onClose={() => setSelectedProject(null)}
         onRequestQuote={scrollToContact}
       />
-
-      <SystemTelemetryModal
-        isOpen={isTelemetryOpen}
-        onClose={() => setIsTelemetryOpen(false)}
-      />
-    </div>
+    </KineticGrid>
   );
 }
 

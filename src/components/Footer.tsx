@@ -1,12 +1,12 @@
 import React from 'react';
-import { ArrowUp, Activity } from 'lucide-react';
+import { ArrowUp } from 'lucide-react';
 import { PyrasoftLogo } from './PyrasoftLogo';
 
 interface FooterProps {
-  onOpenTelemetry: () => void;
+  onOpenContact: () => void;
 }
 
-export const Footer: React.FC<FooterProps> = ({ onOpenTelemetry }) => {
+export const Footer: React.FC<FooterProps> = ({ onOpenContact }) => {
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -15,68 +15,67 @@ export const Footer: React.FC<FooterProps> = ({ onOpenTelemetry }) => {
   };
 
   return (
-    <footer className="bg-[#090a0f] border-t border-white/10 font-sans text-sm pt-16 pb-12 px-5 md:px-12 relative z-10">
+    <footer className="bg-[#090b11] border-t border-white/10 font-sans text-sm pt-16 pb-12 px-6 md:px-12 relative z-10">
       <div className="max-w-[1280px] mx-auto">
         {/* Main Footer Columns */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 pb-12 border-b border-white/10">
           {/* Col 1: Brand & Identity */}
           <div className="md:col-span-2 flex flex-col gap-4">
             <div className="flex items-center gap-3">
-              <div className="relative flex items-center justify-center">
-                <div className="absolute inset-0 bg-[#F4C852]/20 rounded-full blur-md"></div>
-                <PyrasoftLogo className="w-8 h-8 relative z-10 drop-shadow-[0_2px_8px_rgba(244,200,82,0.3)]" />
-              </div>
-              <span className="font-headline text-2xl font-bold tracking-tight text-white">
+              <PyrasoftLogo className="w-7 h-7" />
+              <span className="font-headline text-xl font-bold tracking-tight text-white">
                 PYRASOFT
               </span>
             </div>
 
-            <p className="text-slate-400 text-sm max-w-md leading-relaxed">
-              Full-stack web engineering, custom WordPress architectures, digital performance marketing, content writing, and scalable digital solutions for high-growth brands.
+            <p className="text-slate-400 text-xs sm:text-sm max-w-md leading-relaxed font-normal">
+              Specialized full-stack web engineering, custom WordPress architectures, digital growth marketing, and scalable software solutions.
             </p>
 
-            <div className="flex items-center gap-3 pt-2">
-              <button
-                onClick={onOpenTelemetry}
-                className="inline-flex items-center gap-2 text-xs font-mono px-3 py-1.5 rounded-lg bg-[#0f172a] border border-white/10 text-[#F4C852] hover:bg-[#1e2433] hover:border-[#F4C852]/50 transition-colors cursor-pointer"
-              >
-                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                <span>System Status: All Services Operational</span>
-                <Activity className="w-3.5 h-3.5" />
-              </button>
+            <div className="flex items-center gap-3 pt-1">
+              <div className="inline-flex items-center gap-2 text-xs font-mono px-3 py-1.5 rounded-lg bg-[#141926] border border-white/10 text-slate-300">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                <span>Available for New Projects &bull; Worldwide</span>
+              </div>
             </div>
           </div>
 
           {/* Col 2: Quick Links */}
           <div className="flex flex-col gap-3 md:items-end">
-            <div className="flex flex-col gap-3">
-              <h4 className="text-white font-bold font-headline text-sm tracking-wider uppercase">
-                Quick Links
+            <div className="flex flex-col gap-2.5">
+              <h4 className="text-white font-semibold font-mono text-xs tracking-wider uppercase">
+                Navigation
               </h4>
               <a
                 href="#services"
-                className="text-slate-400 hover:text-[#F4C852] transition-colors text-sm"
+                className="text-slate-400 hover:text-white transition-colors text-xs"
               >
                 Services &amp; Capabilities
               </a>
               <a
-                href="#portfolio"
-                className="text-slate-400 hover:text-[#F4C852] transition-colors text-sm"
+                href="#process"
+                className="text-slate-400 hover:text-white transition-colors text-xs"
               >
-                Featured Portfolio
+                Our Methodology
+              </a>
+              <a
+                href="#portfolio"
+                className="text-slate-400 hover:text-white transition-colors text-xs"
+              >
+                Selected Work
               </a>
               <a
                 href="#testimonials"
-                className="text-slate-400 hover:text-[#F4C852] transition-colors text-sm"
+                className="text-slate-400 hover:text-white transition-colors text-xs"
               >
                 Client Reviews
               </a>
-              <a
-                href="#contact"
-                className="text-slate-400 hover:text-[#F4C852] transition-colors text-sm"
+              <button
+                onClick={onOpenContact}
+                className="text-slate-400 hover:text-white transition-colors text-xs text-left md:text-right cursor-pointer"
               >
-                Start a Project
-              </a>
+                Start a Conversation
+              </button>
             </div>
           </div>
         </div>
@@ -84,21 +83,22 @@ export const Footer: React.FC<FooterProps> = ({ onOpenTelemetry }) => {
         {/* Bottom Sub-Footer with Copyright & Back to Top */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-slate-500 text-xs font-mono text-center sm:text-left">
-            &copy; {new Date().getFullYear()} PYRASOFT. Digital Craftsmanship &amp; Engineering. All rights reserved.
+            &copy; {new Date().getFullYear()} PYRASOFT. All rights reserved.
           </p>
 
           {/* Back to Top Button */}
           <button
             onClick={scrollToTop}
             id="button-back-to-top"
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-[#0f172a] hover:bg-[#F4C852] text-[#F4C852] hover:text-black border border-white/10 hover:border-[#F4C852] text-xs font-mono font-bold transition-all duration-300 shadow-sm group cursor-pointer"
+            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-[#141926] hover:bg-white/10 text-slate-300 hover:text-white border border-white/10 text-xs font-mono transition-all duration-200 group cursor-pointer"
             aria-label="Back to top"
           >
             <span>Back to Top</span>
-            <ArrowUp className="w-4 h-4 transition-transform group-hover:-translate-y-0.5" />
+            <ArrowUp className="w-3.5 h-3.5 transition-transform group-hover:-translate-y-0.5" />
           </button>
         </div>
       </div>
     </footer>
   );
 };
+

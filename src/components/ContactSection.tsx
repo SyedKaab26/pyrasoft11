@@ -94,108 +94,104 @@ Requirements: ${formData.technicalRequirements}`;
   )}`;
 
   return (
-    <section className="py-24 px-5 md:px-12 relative overflow-hidden bg-transparent" id="contact">
-      {/* Decorative gold background glow */}
-      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-[#F4C852]/10 rounded-full blur-[140px] pointer-events-none -z-10"></div>
-      <div className="absolute top-10 left-10 w-[400px] h-[400px] bg-[#FDE047]/10 rounded-full blur-[120px] pointer-events-none -z-10"></div>
-
+    <section className="py-24 px-6 md:px-12 relative overflow-hidden bg-transparent border-t border-white/10" id="contact">
       <div className="max-w-[1280px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
         
         {/* Left Column: Direct channels & Security guarantee */}
         <div className="lg:col-span-5 space-y-8">
           <div>
-            <div className="text-xs font-mono tracking-widest text-[#F4C852] uppercase mb-2">
-              Let's Connect
+            <div className="text-xs font-mono tracking-wider text-[#e5b842] uppercase mb-2">
+              Get in Touch
             </div>
             <h2 className="font-headline text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 tracking-tight">
-              Start a Conversation.
+              Start a Project Conversation
             </h2>
-            <p className="font-sans text-base sm:text-lg text-slate-300 leading-relaxed">
-              Have a project in mind, need to modernize an existing system, or looking for a long-term development partner? Send us your brief and we'll reply within 24 hours.
+            <p className="font-sans text-base text-slate-400 leading-relaxed font-normal">
+              Have a project in mind, need to modernize an existing system, or looking for a dedicated engineering partner? Submit your brief for a direct technical review within 24 hours.
             </p>
           </div>
 
-          <div className="space-y-4">
+          <div className="space-y-3">
             {/* Direct Email */}
-            <div className="flex items-center gap-4 glass-panel p-4 rounded-xl border-white/10 hover:border-[#F4C852]/50 transition-colors">
-              <div className="w-12 h-12 rounded-lg bg-[#0f172a] flex items-center justify-center border border-white/10 text-[#F4C852] shrink-0">
-                <Mail className="w-5 h-5" />
+            <div className="flex items-center gap-4 glass-panel p-4 rounded-xl hover:border-white/20 transition-colors">
+              <div className="w-10 h-10 rounded-lg bg-[#090b11] flex items-center justify-center border border-white/10 text-slate-300 shrink-0">
+                <Mail className="w-4 h-4 text-[#e5b842]" />
               </div>
               <div>
-                <div className="text-slate-400 text-xs font-mono uppercase">Direct Inquiries</div>
+                <div className="text-slate-500 text-xs font-mono uppercase">Direct Inquiries</div>
                 <a
                   href="mailto:s.kaab2004@gmail.com"
-                  className="text-white font-bold text-base hover:text-[#F4C852] transition-colors flex items-center gap-1"
+                  className="text-white font-semibold text-sm sm:text-base hover:text-slate-200 transition-colors flex items-center gap-1"
                 >
                   <span>s.kaab2004@gmail.com</span>
-                  <ArrowUpRight className="w-3.5 h-3.5" />
+                  <ArrowUpRight className="w-3.5 h-3.5 text-slate-400" />
                 </a>
               </div>
             </div>
 
             {/* WhatsApp */}
-            <div className="flex items-center gap-4 glass-panel p-4 rounded-xl border-white/10 hover:border-[#F4C852]/50 transition-colors">
-              <div className="w-12 h-12 rounded-lg bg-[#0f172a] flex items-center justify-center border border-white/10 text-[#F4C852] shrink-0">
-                <MessageSquare className="w-5 h-5" />
+            <div className="flex items-center gap-4 glass-panel p-4 rounded-xl hover:border-white/20 transition-colors">
+              <div className="w-10 h-10 rounded-lg bg-[#090b11] flex items-center justify-center border border-white/10 text-slate-300 shrink-0">
+                <MessageSquare className="w-4 h-4 text-emerald-400" />
               </div>
               <div>
-                <div className="text-slate-400 text-xs font-mono uppercase">WhatsApp Business</div>
+                <div className="text-slate-500 text-xs font-mono uppercase">WhatsApp Consultation</div>
                 <a
                   href="https://wa.me/923252184829"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-white font-bold text-base hover:text-[#F4C852] transition-colors flex items-center gap-1"
+                  className="text-white font-semibold text-sm sm:text-base hover:text-slate-200 transition-colors flex items-center gap-1"
                 >
                   <span>+92 3252184829</span>
-                  <ArrowUpRight className="w-3.5 h-3.5" />
+                  <ArrowUpRight className="w-3.5 h-3.5 text-slate-400" />
                 </a>
               </div>
             </div>
           </div>
 
           {/* Guarantees Box */}
-          <div className="p-5 rounded-xl bg-[#0f172a]/80 border border-white/10 font-mono text-xs text-slate-300 space-y-3 shadow-sm dark:shadow-none">
-            <div className="flex items-center gap-2 text-white font-bold">
-              <Lock className="w-4 h-4 text-[#F4C852]" />
-              <span>CONFIDENTIAL &amp; PROMPT</span>
+          <div className="p-5 rounded-xl bg-[#0e121b] border border-white/10 font-mono text-xs text-slate-300 space-y-3">
+            <div className="flex items-center gap-2 text-white font-semibold">
+              <Lock className="w-3.5 h-3.5 text-slate-400" />
+              <span>CONFIDENTIAL &amp; PROTECTED</span>
             </div>
-            <p className="leading-relaxed text-slate-400">
-              All project briefs are protected by standard non-disclosure agreements. We provide direct access to senior engineers from day one.
+            <p className="leading-relaxed text-slate-400 font-sans text-xs">
+              All discussions and materials are handled under strict NDA standards. We review architecture requirements before formulating milestone proposals.
             </p>
-            <div className="flex items-center gap-4 text-[11px] text-[#F4C852] font-semibold">
-              <span className="flex items-center gap-1"><Clock className="w-3.5 h-3.5 text-[#F4C852]" /> 24h Response Guarantee</span>
-              <span className="flex items-center gap-1"><ShieldCheck className="w-3.5 h-3.5 text-emerald-400" /> Free Architecture Consultation</span>
+            <div className="flex flex-wrap items-center gap-4 text-[11px] text-slate-300 pt-1">
+              <span className="flex items-center gap-1.5"><Clock className="w-3.5 h-3.5 text-[#e5b842]" /> 24h Response Window</span>
+              <span className="flex items-center gap-1.5"><ShieldCheck className="w-3.5 h-3.5 text-emerald-400" /> Free Technical Assessment</span>
             </div>
           </div>
         </div>
 
         {/* Right Column: Interactive Brief Form */}
         <div className="lg:col-span-7">
-          <div className="glass-panel p-6 sm:p-8 rounded-2xl relative shadow-2xl">
+          <div className="glass-panel p-6 sm:p-8 rounded-xl relative">
             {isSubmitted ? (
-              <div className="py-8 px-2 sm:px-4 text-center space-y-5 animate-in fade-in zoom-in duration-300">
-                <div className="w-16 h-16 rounded-full bg-emerald-500/15 border border-emerald-500/40 flex items-center justify-center text-emerald-400 mx-auto shadow-lg shadow-emerald-500/20">
-                  <CheckCircle className="w-8 h-8" />
+              <div className="py-8 px-2 sm:px-4 text-center space-y-5 animate-in fade-in duration-150">
+                <div className="w-12 h-12 rounded-full bg-emerald-500/10 border border-emerald-500/25 flex items-center justify-center text-emerald-400 mx-auto">
+                  <CheckCircle className="w-6 h-6" />
                 </div>
-                <div className="space-y-2">
-                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#F4C852]/10 border border-[#F4C852]/30 text-[#F4C852] text-xs font-mono">
-                    <Sparkles className="w-3.5 h-3.5" />
-                    <span>Mailer Dispatched Successfully</span>
+                <div className="space-y-1.5">
+                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/[0.04] border border-white/10 text-slate-300 text-xs font-mono">
+                    <Sparkles className="w-3.5 h-3.5 text-[#e5b842]" />
+                    <span>Brief Dispatched via Mailer</span>
                   </div>
                   <h3 className="font-headline text-2xl sm:text-3xl font-bold text-white">
-                    Project Brief Sent!
+                    Project Brief Received
                   </h3>
-                  <p className="font-sans text-sm sm:text-base text-slate-300 max-w-md mx-auto">
-                    Your requirements have been processed and forwarded to our engineering desk at{' '}
-                    <span className="text-[#F4C852] font-semibold">{mailerResponse?.recipient || 's.kaab2004@gmail.com'}</span>. We will review your scope and get in touch within 24 hours.
+                  <p className="font-sans text-sm text-slate-400 max-w-md mx-auto">
+                    Your brief has been forwarded to our engineering team at{' '}
+                    <span className="text-white font-medium">{mailerResponse?.recipient || 's.kaab2004@gmail.com'}</span>. We will review your scope and get in touch within 24 hours.
                   </p>
                 </div>
 
                 {/* Brief Summary Box */}
-                <div className="p-4 rounded-xl bg-[#090e1a] border border-white/10 text-left font-mono text-xs space-y-2 max-w-lg mx-auto">
+                <div className="p-4 rounded-xl bg-[#090b11] border border-white/10 text-left font-mono text-xs space-y-2 max-w-lg mx-auto">
                   <div className="flex items-center justify-between text-slate-400 border-b border-white/5 pb-2">
-                    <span className="text-white font-bold">DISPATCH RECEIPT</span>
-                    <span className="text-emerald-400 font-semibold">STATUS: DELIVERED</span>
+                    <span className="text-white font-semibold">DISPATCH CONFIRMATION</span>
+                    <span className="text-emerald-400 font-medium">STATUS: DELIVERED</span>
                   </div>
                   <div className="grid grid-cols-2 gap-2 pt-1 text-slate-300">
                     <div>
@@ -208,20 +204,20 @@ Requirements: ${formData.technicalRequirements}`;
                     </div>
                     <div>
                       <span className="text-slate-500 block text-[10px]">SCOPE</span>
-                      <span className="text-[#F4C852]">{formData.projectScope}</span>
+                      <span className="text-white">{formData.projectScope}</span>
                     </div>
                     <div>
                       <span className="text-slate-500 block text-[10px]">BUDGET</span>
-                      <span className="text-[#F4C852]">{formData.budgetTier}</span>
+                      <span className="text-white">{formData.budgetTier}</span>
                     </div>
                   </div>
                 </div>
 
                 {/* Quick actions */}
-                <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
+                <div className="flex flex-wrap items-center justify-center gap-2.5 pt-2">
                   <button
                     onClick={handleCopySummary}
-                    className="px-4 py-2.5 rounded-lg bg-[#0f172a] hover:bg-[#1a2333] border border-white/10 text-slate-200 text-xs font-mono flex items-center gap-2 transition-all cursor-pointer"
+                    className="px-4 py-2 rounded-lg bg-[#090b11] hover:bg-[#141926] border border-white/10 text-slate-200 text-xs font-mono flex items-center gap-2 transition-colors cursor-pointer"
                   >
                     {copied ? <Check className="w-4 h-4 text-emerald-400" /> : <Copy className="w-4 h-4 text-slate-400" />}
                     <span>{copied ? 'Copied Brief' : 'Copy Brief'}</span>
@@ -229,9 +225,9 @@ Requirements: ${formData.technicalRequirements}`;
 
                   <a
                     href={mailtoLink}
-                    className="px-4 py-2.5 rounded-lg bg-[#0f172a] hover:bg-[#1a2333] border border-white/10 text-slate-200 text-xs font-mono flex items-center gap-2 transition-all"
+                    className="px-4 py-2 rounded-lg bg-[#090b11] hover:bg-[#141926] border border-white/10 text-slate-200 text-xs font-mono flex items-center gap-2 transition-colors"
                   >
-                    <Mail className="w-4 h-4 text-[#F4C852]" />
+                    <Mail className="w-4 h-4 text-[#e5b842]" />
                     <span>Open in Email App</span>
                     <ExternalLink className="w-3 h-3 text-slate-500" />
                   </a>
@@ -240,7 +236,7 @@ Requirements: ${formData.technicalRequirements}`;
                     href={whatsappMessageLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-4 py-2.5 rounded-lg bg-emerald-500/15 hover:bg-emerald-500/25 border border-emerald-500/40 text-emerald-300 text-xs font-mono flex items-center gap-2 transition-all"
+                    className="px-4 py-2 rounded-lg bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-500/25 text-emerald-300 text-xs font-mono flex items-center gap-2 transition-colors"
                   >
                     <MessageSquare className="w-4 h-4 text-emerald-400" />
                     <span>Send via WhatsApp</span>
@@ -261,19 +257,19 @@ Requirements: ${formData.technicalRequirements}`;
                         technicalRequirements: ''
                       });
                     }}
-                    className="btn-secondary px-6 py-2.5 text-xs font-mono cursor-pointer"
+                    className="btn-secondary px-5 py-2 text-xs font-mono cursor-pointer"
                   >
                     Submit Another Inquiry
                   </button>
                 </div>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-5 relative z-10">
+              <form onSubmit={handleSubmit} className="space-y-4 relative z-10">
                 
                 {/* Full Name & Corporate Email */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="space-y-1.5">
-                    <label className="text-xs font-mono text-slate-300 uppercase tracking-wider block font-semibold">
+                    <label className="text-xs font-mono text-slate-300 uppercase tracking-wider block font-medium">
                       Full Name *
                     </label>
                     <input
@@ -283,12 +279,12 @@ Requirements: ${formData.technicalRequirements}`;
                       value={formData.fullName}
                       onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
                       placeholder="e.g. Alex Johnson"
-                      className="w-full bg-[#090e1a] border border-white/10 rounded-lg p-3 text-white focus:outline-none focus:border-[#F4C852] focus:ring-1 focus:ring-[#F4C852] transition-all placeholder:text-slate-500 text-sm font-sans"
+                      className="w-full bg-[#090b11] border border-white/10 rounded-lg p-3 text-white focus:outline-none focus:border-white/30 focus:ring-1 focus:ring-white/20 transition-all placeholder:text-slate-600 text-sm font-sans"
                     />
                   </div>
 
                   <div className="space-y-1.5">
-                    <label className="text-xs font-mono text-slate-300 uppercase tracking-wider block font-semibold">
+                    <label className="text-xs font-mono text-slate-300 uppercase tracking-wider block font-medium">
                       Work Email *
                     </label>
                     <input
@@ -298,21 +294,21 @@ Requirements: ${formData.technicalRequirements}`;
                       value={formData.corporateEmail}
                       onChange={(e) => setFormData({ ...formData, corporateEmail: e.target.value })}
                       placeholder="alex@company.com"
-                      className="w-full bg-[#090e1a] border border-white/10 rounded-lg p-3 text-white focus:outline-none focus:border-[#F4C852] focus:ring-1 focus:ring-[#F4C852] transition-all placeholder:text-slate-500 text-sm font-sans"
+                      className="w-full bg-[#090b11] border border-white/10 rounded-lg p-3 text-white focus:outline-none focus:border-white/30 focus:ring-1 focus:ring-white/20 transition-all placeholder:text-slate-600 text-sm font-sans"
                     />
                   </div>
                 </div>
 
                 {/* Project Scope Selector */}
                 <div className="space-y-1.5">
-                  <label className="text-xs font-mono text-slate-300 uppercase tracking-wider block font-semibold">
+                  <label className="text-xs font-mono text-slate-300 uppercase tracking-wider block font-medium">
                     Service / Scope
                   </label>
                   <select
                     id="select-contact-scope"
                     value={formData.projectScope}
                     onChange={(e) => setFormData({ ...formData, projectScope: e.target.value })}
-                    className="w-full bg-[#090e1a] border border-white/10 rounded-lg p-3 text-white focus:outline-none focus:border-[#F4C852] focus:ring-1 focus:ring-[#F4C852] transition-all text-sm font-sans cursor-pointer"
+                    className="w-full bg-[#090b11] border border-white/10 rounded-lg p-3 text-white focus:outline-none focus:border-white/30 focus:ring-1 focus:ring-white/20 transition-all text-sm font-sans cursor-pointer"
                   >
                     <option value="Custom Web Application">Custom Web Application (Next.js / React / Node)</option>
                     <option value="WordPress & WooCommerce">WordPress &amp; WooCommerce Development</option>
@@ -329,42 +325,42 @@ Requirements: ${formData.technicalRequirements}`;
                 {/* Estimated Budget & Target Timeline */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="space-y-1.5">
-                    <label className="text-xs font-mono text-slate-300 uppercase tracking-wider block font-semibold">
+                    <label className="text-xs font-mono text-slate-300 uppercase tracking-wider block font-medium">
                       Target Budget (PKR)
                     </label>
                     <select
                       value={formData.budgetTier}
                       onChange={(e) => setFormData({ ...formData, budgetTier: e.target.value })}
-                      className="w-full bg-[#090e1a] border border-white/10 rounded-lg p-3 text-white focus:outline-none focus:border-[#F4C852] focus:ring-1 focus:ring-[#F4C852] transition-all text-sm font-sans cursor-pointer"
+                      className="w-full bg-[#090b11] border border-white/10 rounded-lg p-3 text-white focus:outline-none focus:border-white/30 focus:ring-1 focus:ring-white/20 transition-all text-sm font-sans cursor-pointer"
                     >
                       <option value="Rs. 50,000 – Rs. 100,000">Rs. 50,000 – Rs. 100,000</option>
                       <option value="Rs. 100,000 – Rs. 300,000">Rs. 100,000 – Rs. 300,000</option>
                       <option value="Rs. 300,000 – Rs. 600,000">Rs. 300,000 – Rs. 600,000</option>
                       <option value="Rs. 600,000 – Rs. 1,500,000">Rs. 600,000 – Rs. 1,500,000</option>
-                      <option value="Rs. 1,500,000+">Rs. 1,500,000+ (Enterprise &amp; Custom Scale)</option>
+                      <option value="Rs. 1,500,000+">Rs. 1,500,000+ (Enterprise Scale)</option>
                     </select>
                   </div>
 
                   <div className="space-y-1.5">
-                    <label className="text-xs font-mono text-slate-300 uppercase tracking-wider block font-semibold">
+                    <label className="text-xs font-mono text-slate-300 uppercase tracking-wider block font-medium">
                       Desired Timeline
                     </label>
                     <select
                       value={formData.timeline}
                       onChange={(e) => setFormData({ ...formData, timeline: e.target.value })}
-                      className="w-full bg-[#090e1a] border border-white/10 rounded-lg p-3 text-white focus:outline-none focus:border-[#F4C852] focus:ring-1 focus:ring-[#F4C852] transition-all text-sm font-sans cursor-pointer"
+                      className="w-full bg-[#090b11] border border-white/10 rounded-lg p-3 text-white focus:outline-none focus:border-white/30 focus:ring-1 focus:ring-white/20 transition-all text-sm font-sans cursor-pointer"
                     >
                       <option value="Immediate (2-4 Weeks)">Immediate (2-4 Weeks)</option>
                       <option value="Standard (1-2 Months)">Standard (1-2 Months)</option>
-                      <option value="Q1/Q2 Strategic Project">Upcoming Strategic Roadmap</option>
+                      <option value="Upcoming Strategic Roadmap">Upcoming Strategic Roadmap</option>
                     </select>
                   </div>
                 </div>
 
                 {/* Technical Requirements */}
                 <div className="space-y-1.5">
-                  <label className="text-xs font-mono text-slate-300 uppercase tracking-wider block font-semibold">
-                    Project Overview &amp; Goals *
+                  <label className="text-xs font-mono text-slate-300 uppercase tracking-wider block font-medium">
+                    Project Overview &amp; Requirements *
                   </label>
                   <textarea
                     id="textarea-contact-requirements"
@@ -372,8 +368,8 @@ Requirements: ${formData.technicalRequirements}`;
                     required
                     value={formData.technicalRequirements}
                     onChange={(e) => setFormData({ ...formData, technicalRequirements: e.target.value })}
-                    placeholder="Briefly describe your goals, required features, or current challenges..."
-                    className="w-full bg-[#090e1a] border border-white/10 rounded-lg p-3 text-white focus:outline-none focus:border-[#F4C852] focus:ring-1 focus:ring-[#F4C852] transition-all placeholder:text-slate-500 text-sm font-sans resize-none"
+                    placeholder="Briefly describe your goals, desired features, tech preferences, or current challenges..."
+                    className="w-full bg-[#090b11] border border-white/10 rounded-lg p-3 text-white focus:outline-none focus:border-white/30 focus:ring-1 focus:ring-white/20 transition-all placeholder:text-slate-600 text-sm font-sans resize-none"
                   ></textarea>
                 </div>
 
@@ -388,12 +384,12 @@ Requirements: ${formData.technicalRequirements}`;
                   id="btn-submit-brief"
                   type="submit"
                   disabled={isSubmitting}
-                  className="btn-primary w-full py-4 font-bold text-base md:text-lg flex justify-center items-center gap-2 cursor-pointer mt-2 disabled:opacity-50"
+                  className="btn-primary w-full py-3 font-semibold text-sm md:text-base flex justify-center items-center gap-2 cursor-pointer mt-2 disabled:opacity-50"
                 >
                   {isSubmitting ? (
                     <>
                       <span className="w-4 h-4 border-2 border-black border-t-transparent rounded-full animate-spin"></span>
-                      <span>Sending Your Request...</span>
+                      <span>Dispatching Brief...</span>
                     </>
                   ) : (
                     <>
