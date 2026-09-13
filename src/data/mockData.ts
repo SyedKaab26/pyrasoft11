@@ -185,7 +185,7 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
     title: 'Elegant Events Pakistan',
     description: 'A high-end event management platform for grand weddings and corporate galas. Built with a focus on visual elegance and seamless planning workflows.',
     tags: ['EVENT MANAGEMENT', 'REACT', 'TAILWIND CSS'],
-    imageUrl: 'https://lh3.googleusercontent.com/aida/AEtjO1UR804TS5vNGQtgezBWrfPY0_kP_dNcCtHKiDLIXwZCa0BeYYXYJ5O2Uy8FjHvjsnM0mNPX9p5PAWjD3hEzicOQHGPcP5AMxGK-LYNOHsTS5jXiXo_eBWSSUsTnMcnPIgy02t37ZeAj9T2V5IbyxGe-6JRpuHI2gakDAbfv2RQ1vcJeI3HfzYN7V7YPWF8--_DbBd9qvOWmdyXb1DAnK-v0zE7bxvbheDGG_s4oknt7Tb7SbPuKIfzMB61O',
+    imageUrl: 'https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1200&auto=format&fit=crop',
     liveUrl: 'https://elegant-pakistan-events.lovable.app/',
     colSpanDesktop: 'lg:col-span-1',
     stats: [
@@ -201,7 +201,7 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
     title: 'Agri-Bot | AI Agronomist',
     description: 'An advanced AI-powered crop monitoring and agronomist platform. Built for precision agriculture with real-time monitoring and intelligent data analysis.',
     tags: ['AI', 'AGRONOMY', 'PRECISION AG'],
-    imageUrl: 'https://lh3.googleusercontent.com/aida/AEtjO1XwY2cNSlFu2JFP3kHcRnEYCzL4yU-zY9u3nRoNxBvB-gvyZbNCnbYLrKfwWCaVNRJbiR8TdrOvU_saxDebua8HcxtjrXxQd_Rh96kABK4aTf_fhbWESIFCwYt64-RLjdKgd9ejPjNdB62geFt5GUyOY-UGYcQz5AytLrrvYQpYFzZ8pz0jxQHLNNh-RdWnwKS26olaGl2BxufH-rOIc45YpkGlv3x4lZNd037rmT9k6ofvk5f21-jBD_U',
+    imageUrl: 'https://images.unsplash.com/photo-1625246333195-78d9c38ad449?q=80&w=1200&auto=format&fit=crop',
     colSpanDesktop: 'lg:col-span-2',
     stats: [
       { label: 'Crop Analysis Latency', value: '450ms' },
@@ -216,7 +216,7 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
     title: 'Galaxy Pharma',
     description: 'A professional pharmaceutical platform focused on world-class manufacturing, research, and global healthcare innovation.',
     tags: ['HEALTHCARE', 'PHARMA', 'MANUFACTURING'],
-    imageUrl: 'https://lh3.googleusercontent.com/aida/AEtjO1UTchXRMpdPzcV7uTem2yVWT4CfV7e9iI2SqGeknZ9pDoE81Zdk3LPl5IOLZUYYgGDAujTCPt1O3NUAwr-yN-EghbzFaRIdhEa-wsmLEyJW6aDuNVjiQmmBRJJiVAkEidp5ZfGPpzRg_53ffPm_b8M8JfxUmobw4LanSatdOxhGhPbo7Pl3MB1N0P8sYqCTqSmCsfv8aiOASO6lduzbdI2r51Pkg9ORTDlRzgkQf5uSgPwGjEMNfIE_4ZE',
+    imageUrl: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?q=80&w=1200&auto=format&fit=crop',
     liveUrl: 'https://pharma-management-theta.vercel.app/#home',
     colSpanDesktop: 'lg:col-span-2',
     stats: [
@@ -232,7 +232,7 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
     title: 'Éclat Café',
     description: 'A luxury hospitality platform featuring real-time reservation systems and curated artisan experiences. Built for performance and visual elegance.',
     tags: ['HOSPITALITY', 'NEXT.JS', 'RESERVATIONS'],
-    imageUrl: 'https://lh3.googleusercontent.com/aida/AEtjO1W_yYcgYmDezZX9BrE8loAjEhKVKsaLfWZ4EdV3fqNV_bZ-F3NAVYo614aov-Gx3qFPwotgMJz0STZwsOUQ7KDAoR2GYFTFRfe3SQWYgUG1JpZcOyeH1wfpStvmGK-JkgD8Yea7rZlvIDBx2uLsJxCK6RBQo4MXjB7E-sCCD5sOv82Tg2_CZT9gIaoo762gazWSFE6Z-NvQNscM8QOCqTMXv7UyPKEffTstg9AfUGcjcRt4fOIBrYAjVBZx',
+    imageUrl: 'https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&w=1200&auto=format&fit=crop',
     colSpanDesktop: 'lg:col-span-1',
     stats: [
       { label: 'Table Confirmation', value: 'Instant' },

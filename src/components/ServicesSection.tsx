@@ -90,7 +90,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
                     <span className="text-[#e5b842] font-semibold">
                       {indexStr}
                     </span>
-                    <span className="px-2 py-0.5 rounded bg-white/[0.04] border border-white/[0.08] text-slate-400 text-[10px] tracking-wider uppercase">
+                    <span className="text-slate-400 text-[11px] tracking-wider uppercase">
                       {taxonomy}
                     </span>
                   </div>
@@ -113,7 +113,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onSelectServic
 
                 {/* Bottom Metric & Action Bar */}
                 <div className="mt-5 pt-3 border-t border-white/5 flex items-center justify-between font-mono text-xs">
-                  <span className="text-slate-300 text-[11px] font-medium bg-[#141926] px-2 py-0.5 rounded border border-white/5">
+                  <span className="text-slate-400 text-[11px]">
                     {service.metrics}
                   </span>
 

@@ -29,13 +29,14 @@ export const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({
         </button>
 
         {/* Hero Image Preview */}
-        <div className="relative h-60 sm:h-64 w-full rounded-lg overflow-hidden mb-6 border border-white/10">
+        <div className="relative h-60 sm:h-64 w-full rounded-lg overflow-hidden mb-6 border border-white/10 bg-[#090b11]">
           <img
             src={project.imageUrl}
             alt={project.title}
-            className="w-full h-full object-cover"
+            referrerPolicy="no-referrer"
+            className="w-full h-full object-cover object-top"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#090b11] via-[#090b11]/50 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0e121b] via-[#0e121b]/30 to-transparent"></div>
 
           <div className="absolute bottom-4 left-4 right-4 flex flex-wrap items-end justify-between gap-2">
             <div className="flex flex-wrap gap-1.5">
