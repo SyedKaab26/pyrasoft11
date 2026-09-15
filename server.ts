@@ -3,8 +3,22 @@ import path from "path";
 import { createServer as createViteServer } from "vite";
 import nodemailer from "nodemailer";
 import dotenv from "dotenv";
+import fs from "fs";
 
+// Load .env first, then fallback to .env.example if values are present there
 dotenv.config();
+if (fs.existsSync(".env.example")) {
+  try {
+    const exampleConfig = dotenv.parse(fs.readFileSync(".env.example"));
+    for (const [k, v] of Object.entries(exampleConfig)) {
+      if (!process.env[k] && v && !v.startsWith("MY_")) {
+        process.env[k] = v;
+      }
+    }
+  } catch (err) {
+    console.warn("Could not read .env.example fallback:", err);
+  }
+}
 
 async function startServer() {
   const app = express();
@@ -131,22 +145,38 @@ Sent via Pyrasoft Contact Mailer
       let messageId = `local-${Date.now()}`;
 
       // Check if SMTP environment variables are configured
-      const smtpHost = process.env.SMTP_HOST;
-      const smtpUser = process.env.SMTP_USER;
-      const smtpPass = process.env.SMTP_PASS;
+      const smtpHost = (process.env.SMTP_HOST || "").trim();
+      const smtpUser = (process.env.SMTP_USER || "").trim();
+      // Google App Passwords often have spaces like "abcd efgh ijkl mnop", remove all spaces
+      const smtpPass = (process.env.SMTP_PASS || "").replace(/\s+/g, "").trim();
       const smtpPort = parseInt(process.env.SMTP_PORT || "587", 10);
       const smtpSecure = process.env.SMTP_SECURE === "true" || smtpPort === 465;
 
       if (smtpHost || (smtpUser && smtpPass)) {
-        const transporter = nodemailer.createTransport({
-          host: smtpHost || "smtp.gmail.com",
-          port: smtpPort,
-          secure: smtpSecure,
-          auth: {
-            user: smtpUser,
-            pass: smtpPass,
-          },
-        });
+        let transportConfig: any;
+
+        // If using Gmail, nodemailer's built-in 'service: "gmail"' handles ports, TLS and auth perfectly
+        if (smtpUser.includes("@gmail.com") || smtpHost.includes("gmail.com")) {
+          transportConfig = {
+            service: "gmail",
+            auth: {
+              user: smtpUser,
+              pass: smtpPass,
+            },
+          };
+        } else {
+          transportConfig = {
+            host: smtpHost || "smtp.gmail.com",
+            port: smtpPort,
+            secure: smtpSecure,
+            auth: {
+              user: smtpUser,
+              pass: smtpPass,
+            },
+          };
+        }
+
+        const transporter = nodemailer.createTransport(transportConfig);
 
         const info = await transporter.sendMail({
           from: smtpUser ? `"Pyrasoft Inquiries" <${smtpUser}>` : `"Pyrasoft" <no-reply@pyrasoft.dev>`,
@@ -159,7 +189,7 @@ Sent via Pyrasoft Contact Mailer
 
         messageId = info.messageId;
         mailerStatus = "delivered";
-        console.log(`[Mailer] Real email dispatched successfully: ${info.messageId}`);
+        console.log(`[Mailer] Real email dispatched successfully via Gmail SMTP: ${info.messageId}`);
       } else {
         // In local/dev environment without SMTP credentials, log the email cleanly
         console.log(`[Mailer] Simulated Dispatch (SMTP credentials not yet configured in .env):`);
@@ -190,6 +220,14 @@ Sent via Pyrasoft Contact Mailer
         error: err.message || "Failed to process email dispatch",
       });
     }
+  });
+
+  // Catch-all for API routes so they always return JSON, never HTML
+  app.all("/api/*", (req, res) => {
+    res.status(404).json({
+      success: false,
+      error: `API route ${req.method} ${req.originalUrl} not found`,
+    });
   });
 
   // Vite middleware for development
