@@ -9,12 +9,38 @@ interface PortfolioSectionProps {
 }
 
 export const PortfolioSection: React.FC<PortfolioSectionProps> = ({ onSelectProject }) => {
+  const [activeFilter, setActiveFilter] = React.useState<'all' | 'live' | 'ecommerce' | 'enterprise' | 'media'>('all');
+
+  const filteredProjects = React.useMemo(() => {
+    if (activeFilter === 'live') {
+      return PORTFOLIO_PROJECTS.filter((p) => Boolean(p.liveUrl));
+    }
+    if (activeFilter === 'ecommerce') {
+      return PORTFOLIO_PROJECTS.filter((p) =>
+        p.tags.some((t) => t.includes('E-COMMERCE') || t.includes('HOSPITALITY') || t.includes('EVENT'))
+      );
+    }
+    if (activeFilter === 'enterprise') {
+      return PORTFOLIO_PROJECTS.filter((p) =>
+        p.tags.some((t) => t.includes('AI') || t.includes('PHARMA') || t.includes('AGRONOMY') || t.includes('LOGISTICS') || t.includes('FREIGHT'))
+      );
+    }
+    if (activeFilter === 'media') {
+      return PORTFOLIO_PROJECTS.filter((p) =>
+        p.tags.some((t) => t.includes('MEDIA') || t.includes('EDITORIAL') || t.includes('CMS'))
+      );
+    }
+    return PORTFOLIO_PROJECTS;
+  }, [activeFilter]);
+
+  const liveCount = React.useMemo(() => PORTFOLIO_PROJECTS.filter((p) => Boolean(p.liveUrl)).length, []);
+
   return (
     <section className="py-24 px-6 md:px-12 bg-transparent relative border-t border-white/10" id="portfolio">
       <div className="max-w-[1280px] mx-auto">
         
         {/* Section Header */}
-        <div className="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6 pb-6 border-b border-white/10">
+        <div className="mb-10 flex flex-col lg:flex-row lg:items-end justify-between gap-6 pb-6 border-b border-white/10">
           <div>
             <div className="text-xs font-mono tracking-wider text-[#e5b842] uppercase mb-2">
               Selected Work
@@ -23,26 +49,80 @@ export const PortfolioSection: React.FC<PortfolioSectionProps> = ({ onSelectProj
               Featured Client Case Studies
             </h2>
             <p className="font-sans text-sm sm:text-base text-slate-400 max-w-2xl mt-2 leading-relaxed">
-              Production software systems, headless WordPress architectures, and high-performance automated growth funnels.
+              Production software systems, modern headless e-commerce architectures, global logistics platforms, and high-velocity digital publications.
             </p>
           </div>
 
-          <div className="flex items-center gap-4">
-            <span className="text-xs font-mono text-slate-400">
-              {PORTFOLIO_PROJECTS.length} Systems Shipped &bull; Live in Production
-            </span>
+          {/* Interactive Filter Controls */}
+          <div className="flex flex-wrap items-center gap-1.5 p-1 bg-white/[0.04] border border-white/10 rounded-xl">
+            <button
+              type="button"
+              onClick={() => setActiveFilter('all')}
+              className={`px-3 py-1.5 text-xs font-mono rounded-lg transition-colors cursor-pointer ${
+                activeFilter === 'all'
+                  ? 'bg-[#e5b842] text-black font-semibold shadow-sm'
+                  : 'text-slate-400 hover:text-white'
+              }`}
+            >
+              All Systems ({PORTFOLIO_PROJECTS.length})
+            </button>
+            <button
+              type="button"
+              onClick={() => setActiveFilter('live')}
+              className={`px-3 py-1.5 text-xs font-mono rounded-lg transition-colors cursor-pointer flex items-center gap-1.5 ${
+                activeFilter === 'live'
+                  ? 'bg-[#e5b842] text-black font-semibold shadow-sm'
+                  : 'text-slate-400 hover:text-white'
+              }`}
+            >
+              <span className={`w-1.5 h-1.5 rounded-full ${activeFilter === 'live' ? 'bg-black' : 'bg-emerald-400 animate-pulse'}`}></span>
+              Live Deployments ({liveCount})
+            </button>
+            <button
+              type="button"
+              onClick={() => setActiveFilter('ecommerce')}
+              className={`px-3 py-1.5 text-xs font-mono rounded-lg transition-colors cursor-pointer ${
+                activeFilter === 'ecommerce'
+                  ? 'bg-[#e5b842] text-black font-semibold shadow-sm'
+                  : 'text-slate-400 hover:text-white'
+              }`}
+            >
+              E-Commerce &amp; Retail
+            </button>
+            <button
+              type="button"
+              onClick={() => setActiveFilter('enterprise')}
+              className={`px-3 py-1.5 text-xs font-mono rounded-lg transition-colors cursor-pointer ${
+                activeFilter === 'enterprise'
+                  ? 'bg-[#e5b842] text-black font-semibold shadow-sm'
+                  : 'text-slate-400 hover:text-white'
+              }`}
+            >
+              Logistics &amp; Enterprise
+            </button>
+            <button
+              type="button"
+              onClick={() => setActiveFilter('media')}
+              className={`px-3 py-1.5 text-xs font-mono rounded-lg transition-colors cursor-pointer ${
+                activeFilter === 'media'
+                  ? 'bg-[#e5b842] text-black font-semibold shadow-sm'
+                  : 'text-slate-400 hover:text-white'
+              }`}
+            >
+              Media &amp; Publishing
+            </button>
           </div>
         </div>
 
         {/* Bento Grid layout with Crisp Website Cover Previews */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {PORTFOLIO_PROJECTS.map((project) => (
+          {filteredProjects.map((project) => (
             <div
               key={project.id}
               onClick={() => onSelectProject(project)}
               className={`${
-                project.id === 'agri-bot' || project.id === 'galaxy-pharma'
-                  ? 'md:col-span-2 lg:col-span-2'
+                activeFilter === 'all'
+                  ? (project.colSpanDesktop || 'md:col-span-1 lg:col-span-1')
                   : 'md:col-span-1 lg:col-span-1'
               } glass-panel rounded-xl overflow-hidden relative group cursor-pointer flex flex-col transition-all duration-300 hover:border-white/20 hover:shadow-2xl hover:shadow-black/60`}
             >

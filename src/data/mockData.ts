@@ -181,13 +181,29 @@ export const SERVICES_DATA: ServiceItem[] = [
 
 export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
   {
+    id: 'marketlink',
+    title: 'MarketLink | Farm-to-Table Grocery & Producer Network',
+    description: 'A Pakistan-first online grocery marketplace and producer network connecting households directly with independent farmers, artisan bakers, and local food makers.',
+    tags: ['GROCERY E-COMMERCE', 'NEXT.JS', 'PRODUCER NETWORK'],
+    imageUrl: 'https://images.unsplash.com/photo-1542838132-92c53300491e?q=80&w=1200&auto=format&fit=crop',
+    liveUrl: 'https://marketlink-tuk9.vercel.app/',
+    colSpanDesktop: 'md:col-span-2 lg:col-span-2',
+    stats: [
+      { label: 'Producer Network', value: '120+ Farms' },
+      { label: 'Delivery Hubs', value: 'Pan-Pakistan' },
+      { label: 'Checkout Latency', value: '<1.2s' }
+    ],
+    stack: ['Next.js 14', 'Tailwind CSS', 'Framer Motion', 'PostgreSQL', 'Vercel Edge'],
+    architectureOverview: 'Architected with high-density inventory caching, interactive neighborhood delivery routing, and grower catalog synchronization. Features smooth scroll-driven discovery, local produce tiering, and sub-second checkout conversion funnels.'
+  },
+  {
     id: 'elegant-events',
     title: 'Elegant Events Pakistan',
     description: 'A high-end event management platform for grand weddings and corporate galas. Built with a focus on visual elegance and seamless planning workflows.',
     tags: ['EVENT MANAGEMENT', 'REACT', 'TAILWIND CSS'],
     imageUrl: 'https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1200&auto=format&fit=crop',
     liveUrl: 'https://elegant-pakistan-events.lovable.app/',
-    colSpanDesktop: 'lg:col-span-1',
+    colSpanDesktop: 'md:col-span-1 lg:col-span-1',
     stats: [
       { label: 'Booking Speed', value: '<2s' },
       { label: 'Uptime', value: '99.99%' },
@@ -197,19 +213,36 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
     architectureOverview: 'Crafted with micro-animations and zero-layout-shift responsive masonry galleries. Features instant booking inquiry flows, bespoke luxury color palette, and optimized image compression for lightning-fast mobile interactions.'
   },
   {
-    id: 'agri-bot',
-    title: 'Agri-Bot | AI Agronomist',
-    description: 'An advanced AI-powered crop monitoring and agronomist platform. Built for precision agriculture with real-time monitoring and intelligent data analysis.',
-    tags: ['AI', 'AGRONOMY', 'PRECISION AG'],
-    imageUrl: 'https://images.unsplash.com/photo-1625246333195-78d9c38ad449?q=80&w=1200&auto=format&fit=crop',
-    colSpanDesktop: 'lg:col-span-2',
+    id: 'blogvora',
+    title: 'Blog Vora | Digital Trends & Editorial Publishing Platform',
+    description: 'High-velocity editorial publication and digital media platform delivering expert articles, how-to guides, and trend analysis across AI, emerging technology, business, and digital innovation.',
+    tags: ['DIGITAL MEDIA', 'EDITORIAL CMS', 'TECH & AI'],
+    imageUrl: 'https://images.unsplash.com/photo-1499750310107-5fef28a66643?q=80&w=1200&auto=format&fit=crop',
+    liveUrl: 'https://blogvora.com/',
+    colSpanDesktop: 'md:col-span-1 lg:col-span-1',
     stats: [
-      { label: 'Crop Analysis Latency', value: '450ms' },
-      { label: 'Yield Accuracy', value: '96.4%' },
-      { label: 'Sensor Data Stream', value: '1.2M/day' }
+      { label: 'Monthly Readers', value: '85k+' },
+      { label: 'Core Web Vitals', value: '98/100' },
+      { label: 'Article Indexing', value: '<5min' }
     ],
-    stack: ['Python FastAPI', 'Next.js App Router', 'Computer Vision Models', 'PostGIS'],
-    architectureOverview: 'Ingests multispectral drone imagery, satellite soil indices, and IoT moisture sensors. Runs lightweight edge inference to detect early blight, nitrogen deficiencies, and dynamic irrigation schedules.'
+    stack: ['Next.js / SSR', 'Tailwind CSS', 'Schema.org JSON-LD', 'Edge CDN', 'Headless CMS'],
+    architectureOverview: 'Built for high-volume content distribution with programmatic SEO architecture, instant edge caching, dynamic OpenGraph card generation, and sub-second full-text search. Includes structured multi-category taxonomy, newsletter subscriber funnels, and zero-cumulative-layout-shift typography.'
+  },
+  {
+    id: 'pyramid-pakistan',
+    title: 'Pyramid Pakistan | Multimodal Freight & Global Logistics',
+    description: 'Modern multimodal freight forwarding and logistics platform connecting air, sea, road, and warehousing with sub-minute automated rate quotes and real-time cargo container tracking.',
+    tags: ['LOGISTICS & FREIGHT', 'NEXT.JS', 'GLOBAL CARGO'],
+    imageUrl: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=1200&auto=format&fit=crop',
+    liveUrl: 'https://pyramidpakistan.vercel.app/',
+    colSpanDesktop: 'md:col-span-2 lg:col-span-2',
+    stats: [
+      { label: 'Global Ports', value: '140+ Hubs' },
+      { label: 'Quote Speed', value: '<60s' },
+      { label: 'Tracking SLA', value: '99.8%' }
+    ],
+    stack: ['Next.js 14', 'Tailwind CSS', 'Framer Motion', 'Vercel Edge', 'Realtime Tracking API'],
+    architectureOverview: 'Engineered with multimodal freight routing, instant rate calculation pipelines across sea and air corridors, and container milestone telemetry. Features customs clearance documentation workflows, warehousing inventory sync, and a responsive carrier quote generator.'
   },
   {
     id: 'galaxy-pharma',
@@ -218,7 +251,7 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
     tags: ['HEALTHCARE', 'PHARMA', 'MANUFACTURING'],
     imageUrl: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?q=80&w=1200&auto=format&fit=crop',
     liveUrl: 'https://pharma-management-theta.vercel.app/#home',
-    colSpanDesktop: 'lg:col-span-2',
+    colSpanDesktop: 'md:col-span-1 lg:col-span-1',
     stats: [
       { label: 'Compliance Audit', value: 'FDA/GMP' },
       { label: 'Catalog Items', value: '4,500+' },
@@ -228,12 +261,27 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
     architectureOverview: 'Secure catalog with verified batch-tracking, formulation registries, and interactive molecule research exploration. Features strict regulatory compliance pipelines and encrypted dealer inquiry dispatch.'
   },
   {
+    id: 'agri-bot',
+    title: 'Agri-Bot | AI Agronomist',
+    description: 'An advanced AI-powered crop monitoring and agronomist platform. Built for precision agriculture with real-time monitoring and intelligent data analysis.',
+    tags: ['AI', 'AGRONOMY', 'PRECISION AG'],
+    imageUrl: 'https://images.unsplash.com/photo-1625246333195-78d9c38ad449?q=80&w=1200&auto=format&fit=crop',
+    colSpanDesktop: 'md:col-span-1 lg:col-span-1',
+    stats: [
+      { label: 'Crop Analysis Latency', value: '450ms' },
+      { label: 'Yield Accuracy', value: '96.4%' },
+      { label: 'Sensor Data Stream', value: '1.2M/day' }
+    ],
+    stack: ['Python FastAPI', 'Next.js App Router', 'Computer Vision Models', 'PostGIS'],
+    architectureOverview: 'Ingests multispectral drone imagery, satellite soil indices, and IoT moisture sensors. Runs lightweight edge inference to detect early blight, nitrogen deficiencies, and dynamic irrigation schedules.'
+  },
+  {
     id: 'eclat-cafe',
     title: 'Éclat Café',
     description: 'A luxury hospitality platform featuring real-time reservation systems and curated artisan experiences. Built for performance and visual elegance.',
     tags: ['HOSPITALITY', 'NEXT.JS', 'RESERVATIONS'],
     imageUrl: 'https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&w=1200&auto=format&fit=crop',
-    colSpanDesktop: 'lg:col-span-1',
+    colSpanDesktop: 'md:col-span-2 lg:col-span-1',
     stats: [
       { label: 'Table Confirmation', value: 'Instant' },
       { label: 'Peak Concurrency', value: '15k visits/hr' },
@@ -292,6 +340,18 @@ export const TESTIMONIALS_DATA: Testimonial[] = [
     avatarUrl: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDTUQiOVdzaY8EQVgrIXTGhuY5IWGf1loYAzfLVUWazHSZL9BK7Yj0287iXU0kYHoRcKQ_g2ReonpSMDr4BEAhH9u5gbM1j-ho3IFAV1zHC2UUrsamZUTgD7YRb6PD7aEv1o69eWrvQsfAGcNCmtntjXF_4Yli6e94W0C_KqPkh-LKISHcJ-BOAQ4tpBVBTQbeCtmbOBPhoohmlle90x1UMSpKJ2lDlHjJ6mHPT6tPNrbvPfRN07--1PQ',
     rating: 5,
     tags: ['Instant Table Sync', '15k Concurrency', 'Supabase Realtime']
+  },
+  {
+    id: 'pyramid-pakistan-review',
+    name: 'Tariq Mansoor',
+    role: 'Operations & Global Logistics Director',
+    company: 'Pyramid Pakistan',
+    projectName: 'Pyramid Pakistan',
+    projectId: 'pyramid-pakistan',
+    quote: 'PYRASOFT revolutionized our freight forwarding workflow. From instant sea and air freight quotes to seamless cargo tracking across 140+ international ports, our corporate clients experience unmatched clarity and real-time logistics oversight.',
+    avatarUrl: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBCU7DU9ICC0l8dq5V00BA3hzyxSGS2i5ApvEVNQfk3PwpHvgPaz_mPnB_WbqApn-APMN3wVwPoYlfq66OAQl0Nu0QWAOadLowFm-FWe1MNDJlo3riYVKRHJqAPryHoXoCj-Gx-lHcW18OcIJwhvGM_inR6FuY6wyW71WQTdA-awwRaTe9W4TKsePhhRjTD45C06mk7VY4UAqAC-nHwTMAq2AU3ksLxjANZ-wvSxAqKsv4v6v06UlWMuw',
+    rating: 5,
+    tags: ['140+ Global Ports', 'Sub-60s Quotes', 'Real-time Telemetry']
   }
 ];
 
